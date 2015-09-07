@@ -1,0 +1,4 @@
+[submodule "dist"]
+	path = dist
+	url = https://github.com/adjohnson916/site-alpha.git
+	branch = gh-pages
