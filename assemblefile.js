@@ -18,7 +18,7 @@ assemble.option('renameKey', function (fp) {
 });
 
 
-assemble.layouts('layouts/*.hbs');
+assemble.layouts('src/layouts/*.hbs');
 // assemble.layouts('layouts/*.tmpl');
 
 // assemble.set('layout', 'layouts/default.hbs');
@@ -30,7 +30,7 @@ assemble.layouts('layouts/*.hbs');
 // assemble.option('layout', 'layouts/default.hbs');
 
 // console.log(assemble.cache);
-// console.log(assemble.options);
+console.log(assemble);
 
 var relativeDest = require('relative-dest');
 
@@ -44,8 +44,9 @@ assemble.helper('relativeUrl', function (from, to, opts) {
  */
 assemble.task('html', function() {
   assemble.option('assets', 'dist');
-  assemble.src(['templates/**/*.html'], {
-    // layout: 'layouts/default.tmpl',
+  assemble.src(['src/templates/**/*.html'], {
+    // layout: 'src/layouts/default.tmpl',
+    // layout: 'src/layouts/default.hbs',
     layout: 'layouts/default.hbs',
     // layoutDelims: ['!_', '_!'],
     assets: 'dist'
@@ -56,7 +57,7 @@ assemble.task('html', function() {
 });
 
 assemble.task('public', function () {
-  assemble.src(['public/**/*'])
+  assemble.src(['src/public/**/*'])
     .pipe(assemble.dest('dist'));
 });
 
