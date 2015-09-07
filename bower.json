@@ -12,6 +12,7 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3.5",
+    "bootstrap-grid-ms": "~0.1.0",
     "font-awesome": "~4.4.0"
   }
 }

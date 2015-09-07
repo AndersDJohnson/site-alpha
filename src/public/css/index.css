@@ -1,3 +1,6 @@
+@import url("../bower_components/bootstrap/dist/css/bootstrap.css");
+@import url("../bower_components/bootstrap-grid-ms/dist/bootstrap-grid-ms.css");
+
 * {
   box-sizing: border-box;
 }
@@ -91,7 +94,6 @@ a {
 }
 
 .footer .left {
-  width: 30%;
 }
 .footer .left .links {
   -webkit-columns: 100px auto;
