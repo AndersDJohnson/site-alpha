@@ -87,6 +87,12 @@ a {
   color: white;
 }
 
+
+.work-item .work-thumb {
+  width: 100%;
+}
+
+
 .footer {
   color: white;
   padding-bottom: 80px;
