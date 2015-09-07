@@ -39,6 +39,9 @@ assemble.helper('relativeUrl', function (from, to, opts) {
   return relativeDest(from, dest + '/' + to);
 });
 
+
+assemble.data('src/data/**/*');
+
 /**
  * Ext issues: https://github.com/assemble/assemble/issues/642
  */

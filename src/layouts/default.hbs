@@ -61,18 +61,14 @@ title: Anders D. Johnson
         <div class="container clearfix">
           <div class="pull-left">
             <ul class="links list-unstyled">
-              <li>
-                <a href="GitHub">
-                  <i class="fa fa-github"></i>
-                  GitHub
-                </a>
-              </li>
-              <li>
-                <a href="Twitter">
-                  <i class="fa fa-twitter"></i>
-                  Twitter
-                </a>
-              </li>
+              {{#each social}}
+                <li>
+                  <a href="{{url}}" target="_blank">
+                    <i class="fa fa-{{icon}}"></i>
+                    {{name}}
+                  </a>
+                </li>
+              {{/each}}
             </ul>
           </div>
           <div class="pull-right">
