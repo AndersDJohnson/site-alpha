@@ -1,0 +1,89 @@
+---
+title: Anders D. Johnson
+---
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{assets}}//bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="{{assets}}/css/index.css" />
+    <link rel="stylesheet" href="{{assets}}/bower_components/font-awesome/css/font-awesome.css" />
+  </head>
+  <body>
+
+    <div class="top skew-pre">
+      <div class="container">
+        <div class="header clearfix">
+          <div class="pull-left">
+            <a href="{{relativeUrl dest.path ""}}" class="title">
+              Anders D. Johnson
+            </a>
+          </div>
+
+          <div class="pull-right">
+            <ul id="nav" class="nav">
+              <li>
+                {{log dest}}
+                <a href="{{relativeUrl dest.path "work"}}">
+                  <i class="fa fa-book"></i>
+                  Work
+                </a>
+              </li>
+              <li>
+                <a href="resume">
+                  <i class="fa fa-briefcase"></i>
+                  Resume
+                </a>
+              </li>
+              <li>
+                <a href="blog">
+                  <i class="fa fa-pencil"></i>
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="hero">
+          <img src="{{assets}}/img/logo.svg" class="logo" />
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+
+      {% body %}
+
+    </div>
+
+    <div class="footer skew-item section section-tertiary">
+      <div class="skew-content">
+        <div class="container clearfix">
+          <div class="pull-left">
+            <ul class="links list-unstyled">
+              <li>
+                <a href="GitHub">
+                  <i class="fa fa-github"></i>
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a href="Twitter">
+                  <i class="fa fa-twitter"></i>
+                  Twitter
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="pull-right">
+            <div class="legal">
+              Copyright &copy; 2015 Anders D. Johnson
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="skew-fill skew-bg"></div>
+      <div class="skew-cover-bottom skew-bg"></div>
+    </div>
+
+  </body>
+</html>
