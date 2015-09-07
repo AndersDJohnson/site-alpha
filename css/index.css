@@ -74,6 +74,10 @@ a {
   width: 400px;
   max-width: 100%;
 }
+.hero p {
+  font-size: 20px;
+  color: rgba(255,255,255,0.8);
+}
 
 .section .content {
   background: white;
@@ -88,8 +92,12 @@ a {
 }
 
 
-
-.work-item .work-thumb {
+.section .work-item a {
+  display: block;
+  color: black;
+  text-decoration: none;
+}
+.section .work-item .work-thumb {
   width: 100%;
 }
 
