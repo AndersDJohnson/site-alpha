@@ -1,6 +1,6 @@
-dist
+#dist
 
-bower_components
+#bower_components
 
 # Created by https://www.gitignore.io/api/node
 
