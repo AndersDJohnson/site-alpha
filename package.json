@@ -18,7 +18,8 @@
     "url": "https://github.com/AndersDJohnson/site-alpha/issues"
   },
   "homepage": "https://github.com/AndersDJohnson/site-alpha#readme",
-  "dependencies": {
-    "assemble": "^0.6.0-beta.5"
+  "devDependencies": {
+    "assemble": "^0.6.0-beta.5",
+    "engine-handlebars": "^0.6.1"
   }
 }
