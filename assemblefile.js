@@ -39,6 +39,9 @@ assemble.helper('relativeUrl', function (from, to, opts) {
   return relativeDest(from, dest + '/' + to);
 });
 
+assemble.helper('json', function (data) {
+  return JSON.stringify(data);
+});
 
 assemble.data('src/data/**/*');
 
