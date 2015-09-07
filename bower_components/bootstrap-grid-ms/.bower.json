@@ -1,0 +1,40 @@
+{
+  "name": "bootstrap-grid-ms",
+  "version": "0.1.0",
+  "homepage": "https://github.com/AndersDJohnson/bootstrap-grid-ms",
+  "authors": [
+    "Anders D. Johnson"
+  ],
+  "description": "Bootstrap Grid Mid-Small (480-767px)",
+  "main": "dist/bootstrap-grid-ms.min.css",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndersDJohnson/bootstrap-grid-ms.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "bootstrap-grid",
+    "grid",
+    "css",
+    "less"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3"
+  },
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.0",
+    "commit": "509bbeb9876cf6894654c4968dc56653b8e1ce70"
+  },
+  "_source": "git://github.com/AndersDJohnson/bootstrap-grid-ms.git",
+  "_target": "~0.1.0",
+  "_originalSource": "bootstrap-grid-ms"
+}
