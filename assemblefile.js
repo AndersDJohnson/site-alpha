@@ -30,7 +30,7 @@ assemble.layouts('src/layouts/*.hbs');
 // assemble.option('layout', 'layouts/default.hbs');
 
 // console.log(assemble.cache);
-console.log(assemble);
+// console.log(assemble);
 
 var relativeDest = require('relative-dest');
 
