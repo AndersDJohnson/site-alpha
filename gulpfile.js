@@ -44,6 +44,13 @@ assemble.helper('json', function (data) {
   return JSON.stringify(data);
 });
 
+assemble.helper('eq', function (a, b, opts) {
+  return a === b ? opts.fn() : '';
+});
+assemble.helper('neq', function (a, b, opts) {
+  return a !== b ? opts.fn() : '';
+});
+
 assemble.helper('assetHash', function (path, opts) {
   var dest = opts.data.root.dest.dest;
   var assets = opts.data.root.assets;

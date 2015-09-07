@@ -6,6 +6,7 @@ title: Anders D. Johnson
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{title}}</title>
+    <meta name="description" content="{{description}}" />
     <link rel="stylesheet" href="{{assets}}/css/index.css" />
     <link rel="stylesheet" href="{{assets}}/bower_components/font-awesome/css/font-awesome.css" />
   </head>
@@ -43,9 +44,17 @@ title: Anders D. Johnson
             </ul>
           </div>
         </div>
+
         <div class="hero">
-          <img src="{{assets}}/img/logo.svg" class="logo" />
+          {{#eq page "home"}}
+            <img src="{{assets}}/img/logo.svg" class="logo" />
+          {{/eq}}
+          {{#neq page "home"}}
+            <h1>{{../title}}</h1>
+            <p>{{../description}}</p>
+          {{/neq}}
         </div>
+
       </div>
     </div>
 
