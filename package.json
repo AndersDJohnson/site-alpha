@@ -5,6 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "assemble": "assemble",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/AndersDJohnson/site-alpha/issues"
   },
-  "homepage": "https://github.com/AndersDJohnson/site-alpha#readme"
+  "homepage": "https://github.com/AndersDJohnson/site-alpha#readme",
+  "dependencies": {
+    "assemble": "^0.6.0-beta.5"
+  }
 }
