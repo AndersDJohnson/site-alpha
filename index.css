@@ -14,11 +14,6 @@ a {
   color: white;
 }
 
-.container {
-  max-width: 960px;
-  margin: auto;
-}
-
 .top {
   /*background: linear-gradient(to top right, #1e5799 0%,#7db9e8 100%);*/
   background: radial-gradient(ellipse at bottom left, #FF5573 0%, purple 100%);
@@ -35,7 +30,7 @@ a {
   /*text-transform: uppercase;*/
 
   display: block;
-  height: 70px;
+  min-height: 70px;
   line-height: 70px;
   padding-left: 70px;
   background-size: 70px 70px;
@@ -43,16 +38,16 @@ a {
   background-repeat: no-repeat;
 }
 
-.nav {
+#nav {
   padding: 10px;
 }
-.nav li {
+#nav li {
   float: left;
 }
-.nav li a {
-  display: block;
+#nav li a {
+/*  display: block;
   padding: 8px;
-  margin: 8px;
+  margin: 8px;*/
   color: white;
   text-decoration: none;
   /*text-transform: uppercase;*/
@@ -118,7 +113,7 @@ a {
 .skew-content {
   position: relative;
   z-index: 2;
-  padding: 10px;
+  /*padding: 10px;*/
 }
 
 .skew-fill {
@@ -154,45 +149,5 @@ a {
 
 .section-tertiary .skew-bg {
   background: #222;
-}
-
-
-
-
-
-.list-unstyled {
-  margin: 0;
-  padding: 0;
-}
-.list-unstyled > * {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.pull-left {
-  float: left;
-}
-.pull-right {
-  float: right;
-}
-
-/**
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    contenteditable attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that are clearfixed.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-.clearfix:before,
-.clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.clearfix:after {
-    clear: both;
 }
 
