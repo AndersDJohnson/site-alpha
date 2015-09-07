@@ -88,8 +88,12 @@ a {
 }
 
 
-
-.work-item .work-thumb {
+.section .work-item a {
+  display: block;
+  color: black;
+  text-decoration: none;
+}
+.section .work-item .work-thumb {
   width: 100%;
 }
 
