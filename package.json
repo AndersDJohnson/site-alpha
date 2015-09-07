@@ -5,8 +5,9 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "assemble": "assemble",
-    "watch": "watch \"npm ru assemble\" src",
+    "gulp": "gulp",
+    "build": "npm ru gulp",
+    "watch": "watch \"npm ru build\" src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,6 +23,7 @@
   "devDependencies": {
     "assemble": "^0.6.0-beta.5",
     "engine-handlebars": "^0.6.1",
+    "gulp": "^3.9.0",
     "relative-dest": "^0.1.0",
     "watch": "^0.16.0"
   }

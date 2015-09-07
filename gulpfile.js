@@ -1,3 +1,4 @@
+var gulp = require('gulp');
 var assemble = require('assemble');
 var path = require('path');
 assemble.engine('html', require('engine-handlebars'));
@@ -48,7 +49,7 @@ assemble.data('src/data/**/*');
 /**
  * Ext issues: https://github.com/assemble/assemble/issues/642
  */
-assemble.task('html', function() {
+gulp.task('html', function() {
   assemble.option('assets', 'dist');
   assemble.src(['src/templates/**/*.html'], {
     // layout: 'src/layouts/default.tmpl',
@@ -62,9 +63,9 @@ assemble.task('html', function() {
     .pipe(assemble.dest('dist'));
 });
 
-assemble.task('public', function () {
-  assemble.src(['src/public/**/*'])
-    .pipe(assemble.dest('dist'));
+gulp.task('public', function () {
+  gulp.src(['src/public/**/*'])
+    .pipe(gulp.dest('dist'));
 });
 
-assemble.task('default', ['html', 'public']);
+gulp.task('default', ['html', 'public']);
