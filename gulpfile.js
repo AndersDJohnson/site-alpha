@@ -44,6 +44,19 @@ assemble.helper('json', function (data) {
   return JSON.stringify(data);
 });
 
+assemble.helper('assetHash', function (path, opts) {
+  var dest = opts.data.root.dest.dest;
+  var assets = opts.data.root.assets;
+  var md5 = require('md5');
+  var fs = require('fs');
+
+  var realpath = dest + '/' + path;
+
+  var buf = fs.readFileSync(realpath);
+  var hash = md5(buf);
+  return assets + path + '?cb=' + hash;
+});
+
 assemble.data('src/data/**/*');
 
 /**
