@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var assemble = require('assemble');
 var path = require('path');
+var helpers = require('./lib/helpers');
+
 assemble.engine('html', require('engine-handlebars'));
 // assemble.engine('hbs', require('engine-handlebars'));
 // var extname = require('gulp-extname');
@@ -33,36 +35,7 @@ assemble.layouts('src/layouts/*.hbs');
 // console.log(assemble.cache);
 // console.log(assemble);
 
-var relativeDest = require('relative-dest');
-
-assemble.helper('relativeUrl', function (from, to, opts) {
-  var dest = opts.data.root.dest.dest;
-  return relativeDest(from, dest + '/' + to);
-});
-
-assemble.helper('json', function (data) {
-  return JSON.stringify(data);
-});
-
-assemble.helper('eq', function (a, b, opts) {
-  return a === b ? opts.fn() : '';
-});
-assemble.helper('neq', function (a, b, opts) {
-  return a !== b ? opts.fn() : '';
-});
-
-assemble.helper('assetHash', function (path, opts) {
-  var dest = opts.data.root.dest.dest;
-  var assets = opts.data.root.assets;
-  var md5 = require('md5');
-  var fs = require('fs');
-
-  var realpath = dest + '/' + path;
-
-  var buf = fs.readFileSync(realpath);
-  var hash = md5(buf);
-  return assets + path + '?cb=' + hash;
-});
+assemble.helpers(helpers);
 
 assemble.data('src/data/**/*');
 
@@ -83,9 +56,23 @@ gulp.task('html', function() {
     .pipe(assemble.dest('dist'));
 });
 
+gulp.task('css', function () {
+  var instance = assemble.init();
+  instance.engine('css', require('engine-handlebars'));
+  instance.helpers(helpers);
+  console.log('helpers', instance._.helpers);
+  instance.src(['css/**/*.css'], {
+    cwd: 'src/public',
+    base: 'src/public',
+    layout: false,
+    assets: 'dist'
+  })
+    .pipe(instance.dest('dist'));
+});
+
 gulp.task('public', function () {
-  gulp.src(['src/public/**/*'])
+  gulp.src(['src/public/**/*','!src/public/css/**/*'])
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['html', 'public']);
+gulp.task('default', ['html', 'public', 'css']);
