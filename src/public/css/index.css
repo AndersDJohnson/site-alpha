@@ -27,6 +27,7 @@ a {
 
 .top {
   /*background: linear-gradient(to top right, #1e5799 0%,#7db9e8 100%);*/
+  background: purple;
   background: radial-gradient(ellipse at bottom left, #FF5573 0%, purple 100%);
 }
 
