@@ -29,12 +29,21 @@ $(function () {
 
   $('.top').on('mousemove', function (e) {
     var ratios = ratioOffsets(e);
-    var left = ratios.left * 100;
-    var top = ratios.top * 100;
+    var left = ratios.left;
+    var percLeft = left * 100;
+    var top = ratios.top;
+    var percTop = top * 100;
     var $target = $(e.currentTarget);
+
+    var factor = -8;
+
+    var shadowLeft = (left - 0.5) * factor;
+    var shadowTop = (top - 0.5) * factor;
     $target.css({
-      background: 'radial-gradient(circle at ' + left + '% ' + top + '%, ' +
-        '#FF5573 0%, purple 100%)'
+      background: 'radial-gradient(circle at ' + percLeft + '% ' + percTop + '%, ' +
+        '#FF5573 0%, purple 100%)',
+      'text-shadow': shadowLeft + 'px ' + shadowTop + 'px ' +
+        '8px rgba(0,0,0,0.5)'
     });
   });
 
