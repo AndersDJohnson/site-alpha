@@ -60,7 +60,6 @@ gulp.task('css', function () {
   var instance = assemble.init();
   instance.engine('css', require('engine-handlebars'));
   instance.helpers(helpers);
-  console.log('helpers', instance._.helpers);
   instance.src(['css/**/*.css'], {
     cwd: 'src/public',
     base: 'src/public',
