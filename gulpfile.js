@@ -2,13 +2,36 @@ var gulp = require('gulp');
 var assemble = require('assemble');
 var path = require('path');
 var helpers = require('./lib/helpers');
+var middleware = require('./lib/middleware');
 
-assemble.engine('html', require('engine-handlebars'));
+// assemble.enable('debug');
+// assemble.set('debug', true);
+// assemble.option('debug', true);
+
+var configureLodash = function (instance) {
+  var lodash = require('engine-lodash');
+
+  assemble.engine('html', lodash);
+  assemble.engine('tmpl', lodash);
+
+  instance.option('delims', ['<%', '%>']);
+  instance.option('ext', '.tmpl');
+
+  instance.preRender(/./, middleware.dataAlias);
+
+  return lodash;
+};
+
+configureLodash(assemble);
+
+
+// assemble.engine('html', require('engine-handlebars'));
 // assemble.engine('hbs', require('engine-handlebars'));
 // var extname = require('gulp-extname');
-// assemble.engine('html', require('engine-lodash'));
 
-// console.log(assemble.engines['.html'])
+// console.log(assemble.getEngine('html'));
+
+// console.log(assemble.engines['.html'].renderSync('<%= this.ok %>', {}))
 
 /**
  * https://github.com/assemble/assemble/issues/687
@@ -21,8 +44,8 @@ assemble.option('renameKey', function (fp) {
 });
 
 
-assemble.layouts('src/layouts/*.hbs');
-// assemble.layouts('layouts/*.tmpl');
+// assemble.layouts('src/layouts/*.hbs');
+assemble.layouts('src/layouts/*.tmpl');
 
 // assemble.set('layout', 'layouts/default.hbs');
 // // assemble.set('layout', 'layouts/default');
@@ -37,6 +60,7 @@ assemble.layouts('src/layouts/*.hbs');
 
 assemble.helpers(helpers);
 
+
 assemble.data('src/data/**/*');
 
 /**
@@ -44,11 +68,12 @@ assemble.data('src/data/**/*');
  */
 gulp.task('html', function() {
   assemble.option('assets', 'dist');
-  assemble.src(['src/templates/**/*.html'], {
+  // assemble.src(['src/templates/**/*.html'], {
+  assemble.src(['src/tmpl/**/*.html'], {
     // layout: 'src/layouts/default.tmpl',
     // layout: 'src/layouts/default.hbs',
-    layout: 'layouts/default.hbs',
-    // layoutDelims: ['!_', '_!'],
+    // layout: 'layouts/default.hbs',
+    layout: 'layouts/default.tmpl',
     assets: 'dist'
   })
   // assemble.src(['templates/**/*.hbs'])
@@ -58,8 +83,9 @@ gulp.task('html', function() {
 
 gulp.task('css', function () {
   var instance = assemble.init();
-  instance.engine('css', require('engine-handlebars'));
   instance.helpers(helpers);
+  var lodash = configureLodash(instance);
+  instance.engine('css', lodash);
   instance.src(['css/**/*.css'], {
     cwd: 'src/public',
     base: 'src/public',

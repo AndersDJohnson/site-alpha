@@ -41,7 +41,7 @@ a {
   line-height: 70px;
   padding-left: 70px;
   background-size: 70px 70px;
-  background-image: url("{{assetHash "img/logo.svg"}}");
+  background-image: url("<%= assetHash('img/logo.svg', data) %>");
   background-repeat: no-repeat;
 
   text-decoration: none;

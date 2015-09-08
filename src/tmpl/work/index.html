@@ -1,0 +1,31 @@
+---
+title: Work
+description: Notable projects of mine.
+---
+
+<div class="section skew-item">
+  <div class="content skew-content">
+    <div class="container">
+
+      <div class="clearfix work-items">
+        <% _.each(work, function (item) { %>
+          <div class="work-item col-md-3 col-sm-4 col-ms-6">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <a href="<%- item.url %>" target="_blank">
+                  <img class="work-thumb" src="<%- assetHash(item.image, data) %>" alt="<%- item.title %>" />
+                  <h3><%- item.title %></h3>
+                  <p>
+                    <%- item.description %>
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+    </div>
+  </div>
+  <div class="skew-fill skew-bg"></div>
+</div>

@@ -1,0 +1,96 @@
+---
+title: Anders D. Johnson
+---
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%- data.title %></title>
+    <meta name="description" content="<%- data.description %>" />
+    <link rel="stylesheet" href="<%- assets %>/css/index.css" />
+    <link rel="stylesheet" href="<%- assets %>/bower_components/font-awesome/css/font-awesome.css" />
+  </head>
+  <body>
+
+    <div class="top skew-pre">
+      <div class="container">
+        <div class="header clearfix">
+          <div class="pull-left">
+            <a href="<%- relativeUrl(dest.path, '', data) %>" class="title">
+              Anders D. Johnson
+            </a>
+          </div>
+
+          <div class="pull-right">
+            <ul id="nav" class="nav">
+              <li>
+                <a href="<%- relativeUrl(dest.path, 'work', data) %>">
+                  <i class="icon fa fa-book"></i>
+                  Work
+                </a>
+              </li>
+              <li>
+                <a href="resume">
+                  <i class="icon fa fa-briefcase"></i>
+                  Resume
+                </a>
+              </li>
+              <li>
+                <a href="blog">
+                  <i class="icon fa fa-pencil"></i>
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hero">
+          <% if (data.page === 'home') { %>
+            <img src="<%- assetHash('img/logo.svg', data) %>" class="logo" />
+          <% } else { %>
+            <h1><%- data.title %></h1>
+            <p><%- data.description %></p>
+          <% } %>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="main">
+
+      {% body %}
+
+    </div>
+
+    <div class="footer skew-item section section-tertiary">
+      <div class="skew-content">
+        <div class="container clearfix">
+          <div class="left col-ms-6 col-sm-6">
+            <ul class="links list-unstyled">
+              <% _.each(social, function (link) { %>
+                <li>
+                  <a href="<%- link.url %>" target="_blank">
+                    <i class="icon fa fa-<%- link.icon %>"></i>
+                    <span class="text"><%- link.name %></span>
+                  </a>
+                </li>
+              <% }) %>
+            </ul>
+          </div>
+          <div class="pull-right">
+            <div class="legal">
+              Copyright &copy; 2015 Anders D. Johnson
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="skew-fill skew-bg"></div>
+      <div class="skew-cover-bottom skew-bg"></div>
+    </div>
+
+    <script src="<%- assets %>/bower_components/jquery/dist/jquery.js"></script>
+    <script src="<%- assets %>/js/index.js"></script>
+
+  </body>
+</html>
