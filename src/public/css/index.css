@@ -84,6 +84,18 @@ a {
   width: 400px;
   max-width: 100%;
 }
+
+.hero .logo-shadow {
+  background-color: rgba(0,0,0,0.2);
+  height: 2px;
+  width: 275px;
+  margin: auto;
+  margin-top: -30px;
+  margin-bottom: 25px;
+  box-shadow: 0 0 30px 60px rgba(0,0,0,0.2);
+  border-radius: 50%;
+  z-index: -1;
+}
 .hero p {
   font-size: 20px;
   color: rgba(255,255,255,0.8);
