@@ -27,7 +27,10 @@ a {
 
 .top {
   /*background: linear-gradient(to top right, #1e5799 0%,#7db9e8 100%);*/
+  background: purple;
   background: radial-gradient(ellipse at bottom left, #FF5573 0%, purple 100%);
+
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
 }
 
 /*.header .logo {
@@ -80,6 +83,18 @@ a {
 .hero .logo {
   width: 400px;
   max-width: 100%;
+}
+
+.hero .logo-shadow {
+  background-color: rgba(0,0,0,0.2);
+  height: 2px;
+  width: 275px;
+  margin: auto;
+  margin-top: -30px;
+  margin-bottom: 25px;
+  box-shadow: 0 0 30px 60px rgba(0,0,0,0.2);
+  border-radius: 50%;
+  z-index: -1;
 }
 .hero p {
   font-size: 20px;
