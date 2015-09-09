@@ -9,7 +9,32 @@ description: Notable projects of mine.
 
       <div class="clearfix work-items">
         <% _.each(work, function (item) { %>
-          <div class="work-item col-md-3 col-sm-4 col-ms-6">
+          <div class="work-item-wrap col-md-3 col-sm-4 col-ms-6">
+
+            <div class="work-item card-flip">
+              <div class="face front ratio ratio-3x2">
+                <div class="ratio-inner">
+
+                  <a href="<%- item.url %>" target="_blank">
+                    <img class="work-thumb" src="<%- assetHash(item.image, data) %>" title="<%- item.title %>" />
+                  </a>
+                </div>
+              </div>
+              <div class="face back ratio ratio-3x2">
+                <div class="ratio-inner">
+                  <div class="work-detail">
+                    <a href="<%- item.url %>" target="_blank">
+                      <h3><%- item.title %></h3>
+                      <p>
+                        <%- item.description %>
+                      </p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <!--
             <div class="panel panel-default">
               <div class="panel-body">
                 <a href="<%- item.url %>" target="_blank">
@@ -21,6 +46,7 @@ description: Notable projects of mine.
                 </a>
               </div>
             </div>
+          -->
           </div>
         <% }) %>
       </div>
