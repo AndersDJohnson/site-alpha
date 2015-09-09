@@ -14,21 +14,25 @@ description: Notable projects of mine.
             <div class="work-item card-flip">
               <div class="face front ratio ratio-3x2">
                 <div class="ratio-inner">
-
-                  <a href="<%- item.url %>" target="_blank">
+                  <!-- <a class="link" href="<%- item.url %>" target="_blank"> -->
                     <img class="work-thumb" src="<%- assetHash(item.image, data) %>" title="<%- item.title %>" />
-                  </a>
+                  <!-- </a> -->
+                  <!-- <a class="trigger" onclick="">
+                    <i class="fa fa-info-circle"></i>
+                  </a> -->
                 </div>
               </div>
               <div class="face back ratio ratio-3x2">
                 <div class="ratio-inner">
                   <div class="work-detail">
-                    <a href="<%- item.url %>" target="_blank">
                       <h3><%- item.title %></h3>
                       <p>
                         <%- item.description %>
                       </p>
-                    </a>
+                      <a href="<%- item.url %>" target="_blank"
+                        class="btn btn-primary">
+                        View
+                      </a>
                   </div>
                 </div>
               </div>

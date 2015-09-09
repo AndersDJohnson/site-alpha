@@ -2,6 +2,19 @@
 $(function () {
 
 
+
+  $('body').on('click', '.work-item .trigger', function () {
+    $(this).closest('.work-item').toggleClass('flipped');
+  });
+
+  $('body').on('mouseenter', '.work-item', function () {
+    $(this).addClass('flipped');
+  });
+  $('body').on('mouseleave', '.work-item', function () {
+    $(this).removeClass('flipped');
+  });
+
+
   $.stellar({
     responsive: true,
     horizontalScrolling: false,
