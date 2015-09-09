@@ -9,37 +9,50 @@ $(function () {
     positionProperty: 'transform'
   });
 
-  var normalizeOffsets = function (e) {
-    var offset = $(e.currentTarget).offset();
+  var normalizeOffsets = function (e, $el) {
+    $el = $el || $(e.currentTarget);
+    var offset = $el.offset();
     return {
       left: e.pageX - offset.left,
       top: e.pageY - offset.top
     };
   };
 
-  var ratioOffsets = function (e) {
-    var normals = normalizeOffsets(e);
-    var $target = $(e.currentTarget);
+  var ratioOffsets = function (e, $el) {
+    var normals = normalizeOffsets(e, $el);
+    $el = $el || $(e.currentTarget);
     return {
-      left: normals.left / $target.width(),
-      top: normals.top / $target.height()
+      left: normals.left / $el.width(),
+      top: normals.top / $el.height()
     };
   };
 
+  var constrain = function (val, min, max) {
+    return Math.max(min, Math.min(max, val));
+  };
 
-  $('.top').on('mousemove', function (e) {
-    var ratios = ratioOffsets(e);
-    var left = ratios.left;
-    var percLeft = left * 100;
+
+  var $top = $('.top');
+  var $body = $('body');
+
+  $body.on('mousemove', function (e) {
+    var ratiosBody = ratioOffsets(e);
+    var ratios = ratioOffsets(e, $top);
+
+    var left = ratiosBody.left;
     var top = ratios.top;
+
+    top = constrain(top, 0, 1);
+    left = constrain(left, 0, 1);
+
+    var percLeft = left * 100;
     var percTop = top * 100;
-    var $target = $(e.currentTarget);
 
     var factor = -8;
 
     var shadowLeft = (left - 0.5) * factor;
     var shadowTop = (top - 0.5) * factor;
-    $target.css({
+    $top.css({
       background: 'radial-gradient(circle at ' + percLeft + '% ' + percTop + '%, ' +
         '#FF5573 0%, purple 100%)',
       'text-shadow': shadowLeft + 'px ' + shadowTop + 'px ' +
